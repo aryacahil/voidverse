@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marga Void - Enter the Void</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
+            background-size: 110%; 
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            animation: pan-background 120s linear infinite alternate;
+        }
+
+        @keyframes pan-background {
+            from { background-position: 0% 0%; }
+            to { background-position: 100% 100%; }
+        }
+
+        @keyframes drift {
+            from { transform: translateX(-10vw); }
+            to { transform: translateX(110vw); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px 2px rgba(167, 139, 250, 0.2); }
+            50% { box-shadow: 0 0 25px 5px rgba(167, 139, 250, 0.4); }
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) skewX(-30deg); }
+            100% { transform: translateX(200%) skewX(-30deg); }
+        }
+
+        .particle {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            z-index: 5;
+            animation: drift linear infinite;
+        }
+
+        .animate-content {
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out forwards;
+            animation-delay: 0.2s;
+        }
+
+        .void-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.7), rgba(30, 27, 47, 0.7));
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .avatar-glow {
+            animation: pulse-glow 5s ease-in-out infinite;
+        }
+        
+        .neon-button {
+            position: relative;
+            overflow: hidden; 
+            background: rgba(30, 27, 47, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: rgba(220, 215, 240, 0.8);
+        }
+        
+        .neon-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            animation: shimmer 10s linear infinite;
+            animation-delay: 3s; 
+        }
+
+        .neon-button:hover {
+            border-color: rgba(167, 139, 250, 0.8);
+            color: #fff;
+            box-shadow: 0 0 20px 3px rgba(139, 92, 246, 0.4);
+        }
+        
+        .neon-button:hover i { color: #c4b5fd; }
+
+        .neon-button:active {
+            transform: translateY(0) scale(0.98);
+            box-shadow: 0 0 10px 0px rgba(167, 139, 250, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="cosmic-dust-container">
+        <div class="particle" style="width: 1px; height: 1px; top: 20%; left: -5%; animation-duration: 40s; animation-delay: -5s;"></div>
+        <div class="particle" style="width: 2px; height: 2px; top: 80%; left: -5%; animation-duration: 45s; animation-delay: -10s; opacity: 0.5;"></div>
+        <div class="particle" style="width: 2px; height: 2px; top: 50%; left: -5%; animation-duration: 25s; animation-delay: -3s;"></div>
+        <div class="particle" style="width: 3px; height: 3px; top: 10%; left: -5%; animation-duration: 30s; animation-delay: -8s; opacity: 0.6;"></div>
+        <div class="particle" style="width: 3px; height: 3px; top: 90%; left: -5%; animation-duration: 15s; animation-delay: -1s;"></div>
+        <div class="particle" style="width: 4px; height: 4px; top: 60%; left: -5%; animation-duration: 18s; animation-delay: -12s; opacity: 0.7;"></div>
+    </div>
+    
+    <main class="relative z-10 min-h-screen w-full flex items-center justify-center p-4">
+        <div class="animate-content w-full max-w-sm mx-auto void-card rounded-3xl">
+            <div class="p-6 sm:p-8 text-center">
+
+                <header class="mb-8">
+                    <img src="images/void.jpg" alt="Avatar" class="avatar-glow w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+                    
+                    <h1 class="text-3xl font-black text-white" style="text-shadow: 0 0 15px rgba(167, 139, 250, 0.4), 0 0 5px rgba(0,0,0,0.5);">
+                        Marga Void
+                    </h1>
+                    
+                    <p class="text-slate-300 mt-2 text-base leading-relaxed tracking-wide">
+                        Welcome to the deep void. Let's play, create, and grow together.
+                    </p>
+                </header>
+
+                <section class="flex flex-col space-y-4">
+                    <a href="https://margavoid.vercel.app/" target="_blank" class="neon-button group flex items-center justify-center w-full font-semibold py-4 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fas fa-globe w-6 text-center mr-3 text-violet-400 transition-colors"></i>
+                        <span>Website</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@margavoidd?is_from_webapp=1&sender_device=pc" target="_blank" class="neon-button group flex items-center justify-center w-full font-semibold py-4 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-tiktok w-6 text-center mr-3 text-violet-400 transition-colors"></i>
+                        <span>TikTok</span>
+                    </a>
+                    <a href="https://www.instagram.com/margavoidd/#" target="_blank" class="neon-button group flex items-center justify-center w-full font-semibold py-4 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-instagram w-6 text-center mr-3 text-violet-400 transition-colors"></i>
+                        <span>Instagram</span>
+                    </a>
+                    <a href="https://web.telegram.org/k/" target="_blank" class="neon-button group flex items-center justify-center w-full font-semibold py-4 px-5 rounded-xl transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-telegram w-6 text-center mr-3 text-violet-400 transition-colors"></i>
+                        <span>Telegram</span>
+                    </a>
+                </section>
+
+                <footer class="mt-8 text-xs text-slate-500">
+                    <p>&copy; 2025 Marga Void</p>
+                </footer>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
